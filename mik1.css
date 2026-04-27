@@ -11,8 +11,8 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     
-    width: 60vh;  
-    height: 60vh; 
+    width: 20vh;  
+    height: 20vh; 
     
     gap: 0; 
 }
