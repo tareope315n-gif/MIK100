@@ -1,9 +1,11 @@
 body {
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f0f0f0;
 }
 
 .contents {
@@ -11,24 +13,29 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     
-    /* 横幅を基準にする（画面の80%など） */
-    width: 80vw;
-    /* 高さは横幅に合わせて正方形になるようにする（もしくは最大サイズを指定） */
-    max-width: 400px; 
-    aspect-ratio: 1 / 1; /* 縦横比を1:1に固定して正方形を維持 */
+    /* モバイルの横幅に合わせてサイズを自動調整 */
+    width: 90vw;       /* 画面横幅の90%を使う */
+    max-width: 500px;  /* でも最大500pxまで */
+    aspect-ratio: 1/1; /* 強制的に正方形にする */
     
-    /* モバイルでの重なりを防ぐために少し隙間を開ける */
-    gap: 10px; 
+    gap: 10px;         /* 画像同士の隙間 */
 }
 
 .items {
+    width: 100%;       /* 親のグリッド枠いっぱいに広げる */
+    height: 100%;
     overflow: hidden;
-    /* 枠線などが必要な場合はここに追加 */
+    display: flex;     /* 中の画像を中央に寄せる */
+    justify-content: center;
+    align-items: center;
+    background: white; /* 重なり確認用（任意） */
 }
 
 .items img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* QRコードが切れないように cover から contain に変更推奨 */
-    display: block;
+    /* ここが重要：画像が枠を突き破らないように設定 */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; 
 }
