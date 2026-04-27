@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,29 +12,25 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     
-    /* モバイルの横幅に合わせてサイズを自動調整 */
-    width: 90vw;       /* 画面横幅の90%を使う */
-    max-width: 500px;  /* でも最大500pxまで */
-    aspect-ratio: 1/1; /* 強制的に正方形にする */
-    
-    gap: 10px;         /* 画像同士の隙間 */
+    /* モバイルで見やすいよう画面幅の90%に設定 */
+    width: 90vw;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    gap: 10px;
 }
 
 .items {
-    width: 100%;       /* 親のグリッド枠いっぱいに広げる */
-    height: 100%;
-    overflow: hidden;
-    display: flex;     /* 中の画像を中央に寄せる */
+    /* はみ出しを隠す設定を解除し、中身を中央に寄せる */
+    display: flex;
     justify-content: center;
     align-items: center;
-    background: white; /* 重なり確認用（任意） */
+    background-color: #ffffff; /* 枠の範囲がわかるよう白背景に */
 }
 
 .items img {
-    /* ここが重要：画像が枠を突き破らないように設定 */
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; 
+    /* 画像の全貌を表示させるための最重要設定 */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 枠の中に全体が収まるように縮小する */
+    display: block;
 }
